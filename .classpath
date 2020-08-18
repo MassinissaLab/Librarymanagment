@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="D:/WorkSpaces/java se/TP4_BDObjets/libs/db4o-8.0.249.16098-all-java5.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
