@@ -12,7 +12,7 @@ public class Editeur {
 			this.adresse = adresse;
 		}
 		public String toString() {
-			return "\n- Maisonedition= " + maisonedition + "\n- Adresse= " + adresse;
+			return "\n- Maisonedition = " + maisonedition + "\n- Adresse = " + adresse;
 		}
 		public Integer getIdediteur() {
 			return idediteur;

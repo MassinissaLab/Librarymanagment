@@ -28,6 +28,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Main {
 
@@ -97,7 +99,7 @@ public class Main {
 		btnListerlivres.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 153, 102), new Color(0, 153, 102), new Color(0, 51, 0), new Color(0, 51, 0)));
 		
 		btnListerlivres.setFont(new Font("Century Gothic", Font.BOLD, 13));
-		btnListerlivres.setBounds(198, 97, 110, 31);
+		btnListerlivres.setBounds(278, 96, 110, 31);
 		panel_livres.add(btnListerlivres);
 		
 		isbn_livre = new JTextField();
@@ -124,6 +126,29 @@ public class Main {
 		livresArea.setEditable(false);
 		livresArea.setBounds(0, 150, 511, 290);
 		panel_livres.add(livresArea);
+		
+		JButton btnajouterlivre = new JButton("Ajouter");
+		btnajouterlivre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Fenetreajouterlivre window = new Fenetreajouterlivre();
+							window.getFrame().setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			
+			}
+		});
+		btnajouterlivre.setForeground(Color.WHITE);
+		btnajouterlivre.setFont(new Font("Century Gothic", Font.BOLD, 13));
+		btnajouterlivre.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 153, 102), new Color(0, 153, 102), new Color(0, 51, 0), new Color(0, 51, 0)));
+		btnajouterlivre.setBackground(new Color(0, 51, 0));
+		btnajouterlivre.setBounds(111, 96, 110, 31);
+		panel_livres.add(btnajouterlivre);
 		
 		JPanel panel_auteurs = new JPanel();
 		panel_auteurs.setBackground(new Color(0, 153, 102));

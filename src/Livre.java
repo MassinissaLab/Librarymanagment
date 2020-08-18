@@ -27,7 +27,7 @@ public class Livre {
 	}
 	
 	public String toString() {
-		return "[ID Livre : "+idlivre+"]\n- Titre= " + titre + "\n- ISBN= " + isbn +
+		return "[ID Livre : "+idlivre+"]\n- Titre = " + titre + "\n- ISBN = " + isbn +
 				"\n- Année d'édition = " + anedition + "\n- Domaine = " + domain + "\n- Motsclés = " + motsclés+
 				"\n[Auteur]" + auteur.toString() + "\n[Editeur]" + editeur.toString();
 	}

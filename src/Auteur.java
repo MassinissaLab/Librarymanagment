@@ -63,8 +63,8 @@ public class Auteur {
 
 
 	public String toString() {
-		return "\n- Nom= " + nom + "\n- Prenom= " + prenom + "\n- Date de naissance= " + datenaissance + "\n- Lieu de naissance= "
-				+ lieunaissance + "\n- Adresse= " + adresse ;
+		return "\n- Nom = " + nom + "\n- Prenom = " + prenom + "\n- Date de naissance = " + datenaissance + "\n- Lieu de naissance = "
+				+ lieunaissance + "\n- Adresse = " + adresse ;
 	}
 	
 
