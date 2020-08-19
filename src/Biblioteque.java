@@ -128,7 +128,7 @@ public Object rechercherauteur(String nom,String prenom) {
 		LinkedList<Object> r=null;
 		try {
 			
-			Auteur tmp = new Auteur(nom,prenom,null,null,null);
+			Auteur tmp = new Auteur(null,nom,prenom,null,null,null);
 			ObjectSet result = db.queryByExample(tmp);
 			r=lister(result);
 			return r.getFirst();
@@ -169,7 +169,7 @@ public Object rechercherediteur(String maison) {
 	LinkedList<Object> r=null;
 	try {
 		
-		Editeur tmp = new Editeur(maison,null);
+		Editeur tmp = new Editeur(null,maison,null);
 		ObjectSet result = db.queryByExample(tmp);
 		r=lister(result);
 		

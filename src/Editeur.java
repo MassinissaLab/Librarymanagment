@@ -25,6 +25,14 @@ public class Editeur {
 				db.close();
 			}
 		}
+		
+	public Editeur(Integer idediteur,String maisonedition, String adresse) {
+			
+			this.idediteur=idediteur;
+			this.maisonedition = maisonedition;
+			this.adresse = adresse;
+			
+		}
 		public String toString() {
 			return "\n- Maison d'édition = " + maisonedition + "\n- Adresse = " + adresse;
 		}

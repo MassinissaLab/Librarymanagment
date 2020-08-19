@@ -34,6 +34,17 @@ public class Auteur {
 		
 	}
 	
+	public Auteur(Integer idauteur,String nom,String prenom,String datenaissance,String lieunaissance,String adresse) {
+		this.idauteur=idauteur;
+		this.nom=nom;
+		this.prenom=prenom;
+		this.datenaissance=datenaissance;
+		this.lieunaissance=lieunaissance;
+		this.adresse=adresse;
+		
+		
+		
+	}
 
 
 	
