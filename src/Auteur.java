@@ -12,13 +12,26 @@ public class Auteur {
 	private String lieunaissance;
 	private String adresse;
 	
-	public Auteur(Integer idauteur,String nom,String prenom,String datenaissance,String lieunaissance,String adresse) {
-		this.idauteur=idauteur;
+	public Auteur(String nom,String prenom,String datenaissance,String lieunaissance,String adresse) {
+		
 		this.nom=nom;
 		this.prenom=prenom;
 		this.datenaissance=datenaissance;
 		this.lieunaissance=lieunaissance;
 		this.adresse=adresse;
+		
+		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"biblioteque");
+		try {
+			
+			ObjectSet result = db.queryByExample(Auteur.class);
+			idauteur=result.size()+1;
+			
+			
+			
+		} finally {
+			db.close();
+		}
+		
 	}
 	
 

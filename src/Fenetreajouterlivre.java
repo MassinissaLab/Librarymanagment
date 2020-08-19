@@ -1,16 +1,11 @@
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.Color;
-import java.awt.Window.Type;
 import javax.swing.JButton;
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-import java.text.Bidi;
 import java.awt.event.ActionEvent;
-import javax.swing.JScrollPane;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
@@ -76,13 +71,13 @@ public class Fenetreajouterlivre {
 			public void actionPerformed(ActionEvent e) {
 				Biblioteque bib=new Biblioteque();
 				
-				Auteur aut=bib.ajouterauteur(nomauteur.getText(), prenomauteur.getText(), datenaissanceauteur.getText(),
+				Auteur aut=new Auteur(nomauteur.getText(), prenomauteur.getText(), datenaissanceauteur.getText(),
 						lieunaissanceauteur.getText(), adresseauteur.getText());
 				
-				Editeur edit=bib.ajouterediteur(maisonedition.getText(),adresseedition.getText());
+				Editeur edit=new Editeur(maisonedition.getText(),adresseedition.getText());
 				
 				
-				bib.ajouterlivre(titrelivre.getText(), isbnlivre.getText(), aut, edit,
+				boolean t=bib.ajouterlivre(titrelivre.getText(), isbnlivre.getText(), aut, edit,
 						anneeeditionlivre.getText(), domainelivre.getText(), motscleslivre.getText());
 				
 				ajouterlivre.dispose();

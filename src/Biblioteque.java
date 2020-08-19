@@ -26,7 +26,7 @@ public  LinkedList<Object> lister(List<?> result){
 		return tmp;
 				}
 	
-	
+//fonctions pour livre	
 public boolean ajouterlivre(String titre, String isbn,Auteur auteur, Editeur editeur, String anedition,
 			String domain, String motsclés) {
 		
@@ -38,8 +38,9 @@ public boolean ajouterlivre(String titre, String isbn,Auteur auteur, Editeur edi
 			ObjectSet result = db.queryByExample(Livre.class);
 			
 			tmp=new Livre(result.size()+1,titre,isbn,auteur,editeur,anedition, domain, motsclés);
-			ObjectSet existe = db.queryByExample(tmp);
-			if(existe==null) {
+			ObjectSet existe = db.queryByExample(new Livre(null,titre,isbn,auteur,editeur,anedition, domain, motsclés));
+			
+			if(!existe.hasNext()) {
 				db.store(tmp);
 			}
 			else {
@@ -97,47 +98,9 @@ public Object rechercherlivre(String isbn) {
 			
 		}
 	}
-public void supprimerlivre(String isbn) {
 
-		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"biblioteque");
-		
-		try {
-			
-			
-			ObjectSet result = db.queryByExample(new Livre(null,null,isbn,null,null,null,null,null));
-			
-			Livre tmp=(Livre) result.next();
-			db.delete(tmp);
-			
-			
-		} finally {
-			db.close();
-		}
-	}
-	
-	
-public Auteur ajouterauteur(String nom,String prenom,String datenaissance,String lieunaissance,String adresse) {
-		Auteur tmp=null;
-		
-		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"biblioteque");
-		try {
-			
-			ObjectSet result = db.queryByExample(Auteur.class);
-			tmp=new Auteur(result.size()+1,nom,prenom,datenaissance,lieunaissance,adresse);
-			ObjectSet existe = db.queryByExample(tmp);
-			if(existe==null) {
-				db.store(tmp);
-			}
-			
-		} finally {
-			db.close();
-		}
-		
-		return tmp;
-		
-	}
 
-	
+//fonctions pour auteur
 	
 public LinkedList<Object> listerauteur() {
 		
@@ -165,7 +128,7 @@ public Object rechercherauteur(String nom,String prenom) {
 		LinkedList<Object> r=null;
 		try {
 			
-			Auteur tmp = new Auteur(null,nom,prenom,null,null,null);
+			Auteur tmp = new Auteur(nom,prenom,null,null,null);
 			ObjectSet result = db.queryByExample(tmp);
 			r=lister(result);
 			return r.getFirst();
@@ -181,63 +144,8 @@ public Object rechercherauteur(String nom,String prenom) {
 		
 	}
 	
-public void supprimerauteur(String nom,String prenom) {
+//fonctions pour éditeur
 
-		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"biblioteque");
-		
-		try {
-			
-			
-			ObjectSet result = db.queryByExample(new Auteur(null,nom,prenom,null,null,null));
-			
-			Auteur tmp=(Auteur) result.next();
-			db.delete(tmp);
-			
-			
-		} finally {
-			db.close();
-		}
-	}
-
-public Editeur ajouterediteur(String maison,String adresse) {
-		Editeur tmp=null;
-		
-		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"biblioteque");
-		
-		try {
-			ObjectSet result = db.queryByExample(Editeur.class);
-			tmp=new Editeur(result.size()+1,maison,adresse);
-			ObjectSet existe = db.queryByExample(tmp);
-			if(existe==null) {
-				db.store(tmp);
-			}
-			
-			
-			
-		} finally {
-			db.close();
-		}
-		return tmp;
-		
-	}
-	
-	public void supprimerediteur(String maison) {
-
-		ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"biblioteque");
-		
-		try {
-			
-			
-			ObjectSet result = db.queryByExample(new Editeur(null,maison,null));
-			
-			Editeur tmp=(Editeur) result.next();
-			db.delete(tmp);
-			
-			
-		} finally {
-			db.close();
-		}
-	}
 public LinkedList<Object> listerediteur() {
 	
 	ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"biblioteque");
@@ -261,7 +169,7 @@ public Object rechercherediteur(String maison) {
 	LinkedList<Object> r=null;
 	try {
 		
-		Editeur tmp = new Editeur(null,maison,null);
+		Editeur tmp = new Editeur(maison,null);
 		ObjectSet result = db.queryByExample(tmp);
 		r=lister(result);
 		

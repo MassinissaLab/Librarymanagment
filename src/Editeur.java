@@ -1,3 +1,6 @@
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
 
 public class Editeur {
 
@@ -5,14 +8,25 @@ public class Editeur {
 		private String maisonedition;
 		private String adresse;
 		
-		public Editeur(Integer idediteur, String maisonedition, String adresse) {
+		public Editeur(String maisonedition, String adresse) {
 			
-			this.idediteur = idediteur;
+			
 			this.maisonedition = maisonedition;
 			this.adresse = adresse;
+			ObjectContainer db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"biblioteque");
+			try {
+				
+				ObjectSet result = db.queryByExample(Editeur.class);
+				idediteur=result.size()+1;
+				
+				
+				
+			} finally {
+				db.close();
+			}
 		}
 		public String toString() {
-			return "\n- Maisonedition = " + maisonedition + "\n- Adresse = " + adresse;
+			return "\n- Maison d'édition = " + maisonedition + "\n- Adresse = " + adresse;
 		}
 		public Integer getIdediteur() {
 			return idediteur;

@@ -264,25 +264,13 @@ public class Main {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
-
-	    		Runnable myRunnable =
-	    			    new Runnable(){
-	    			        public void run(){
-	    			        	
-	    			    		LinkedList<Object> t=bib.listerlivre();
-	    			    		ListIterator<Object> it = t.listIterator();
-	    			    		livresArea.setText("");
-	    			    		while(it.hasNext()) {
-	    			    			
-	    			    			livresArea.append(it.next()+"\n__________________________________________________________________________________\n");
-	    			    		}
-	    						
-	    						
-	    			        }
-	    			    };
-	            
-			    Thread thread = new Thread(myRunnable);
-			    thread.start();
+				LinkedList<Object> t=bib.listerlivre();
+	    		ListIterator<Object> it = t.listIterator();
+	    		livresArea.setText("");
+	    		while(it.hasNext()) {
+	    			
+	    			livresArea.append(it.next()+"\n__________________________________________________________________________________\n");
+	    		}
 				
 				
 			}
@@ -290,25 +278,15 @@ public class Main {
 		btnListerauteurs.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				LinkedList<Object> t=bib.listerauteur();
+	    		ListIterator<Object> it = t.listIterator();
+	    		auteursArea.setText("");
+	    		while(it.hasNext()) {
+	    			
+	    			auteursArea.append(it.next()+"\n__________________________________________________________________________________\n");
+	    		}
+				
 
-	    		Runnable myRunnable =
-	    			    new Runnable(){
-	    			        public void run(){
-	    			        	
-	    			    		LinkedList<Object> t=bib.listerauteur();
-	    			    		ListIterator<Object> it = t.listIterator();
-	    			    		auteursArea.setText("");
-	    			    		while(it.hasNext()) {
-	    			    			
-	    			    			auteursArea.append(it.next()+"\n__________________________________________________________________________________\n");
-	    			    		}
-	    						
-	    						
-	    			        }
-	    			    };
-	            
-			    Thread thread = new Thread(myRunnable);
-			    thread.start();
 			}
 		});
 		
@@ -316,24 +294,14 @@ public class Main {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-	    		Runnable myRunnable =
-	    			    new Runnable(){
-	    			        public void run(){
-	    			        	
-	    			    		LinkedList<Object> t=bib.listerediteur();
-	    			    		ListIterator<Object> it = t.listIterator();
-	    			    		editeursArea.setText("");
-	    			    		while(it.hasNext()) {
-	    			    			
-	    			    			editeursArea.append(it.next()+"\n__________________________________________________________________________________\n");
-	    			    		}
-	    						
-	    						
-	    			        }
-	    			    };
-	            
-			    Thread thread = new Thread(myRunnable);
-			    thread.start();
+				LinkedList<Object> t=bib.listerediteur();
+	    		ListIterator<Object> it = t.listIterator();
+	    		editeursArea.setText("");
+	    		while(it.hasNext()) {
+	    			
+	    			editeursArea.append(it.next()+"\n__________________________________________________________________________________\n");
+	    		}
+				
 			}
 		});
 		
